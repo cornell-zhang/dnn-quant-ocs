@@ -1,0 +1,11 @@
+*.log
+*.pyc
+__pycache__/
+.pytest_cache
+.cache
+site/
+env/
+.env/
+.idea/
+logs/
+.DS_Store
