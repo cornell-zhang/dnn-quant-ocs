@@ -1,3 +1,54 @@
+# Outlier Channel Splitting
+
+OCS is a technique to improve post-training quantization which splits (i.e. duplicates then divides by two) channels containing large outlier weights in a layer. This reduces the dynamic range of the weights and reduces quantization error.
+
+We implement OCS in PyTorch using the Distiller library. The master branch contains the code to do **weight OCS only**, and scripts to help replicate the results in Table 1.
+
+### Installation
+Distiller requires ```Python-3.5``` or ```Python-3.6```. The required packages can be installed via:
+```
+pip install -r requirements.txt --user
+```
+
+### Usage
+Our experiment are run from the director ```OCS-CNN```. The main program is ```compresss_classifier.py``` and we provide an example of what arguments to set below:
+```
+python compress_classifier.py \
+    # Path to the ImageNet data
+    %DATA_DIR% \
+    # Model (--help shows a list of predefined models)
+    -a resnet50 \
+    # Batch size, data loaders, validation split
+    -b 128 -j 1 --vs 0 \
+    # Inference only, use pretrained model
+    --evaluate --pretrained \
+    # Activation and weight bitwidth
+    --act-bits 8 --weight-bits 6 \
+    # Use OCS method
+    --quantize-method ocs \
+    # Weight expand ratio in each layer
+    --weight-expand-ratio 0.02 \
+    # Weight clip threshold c
+    #  c  >  0  --> clip to c*max(W)
+    #  c ==  0  --> MSE clipping
+    #  c == -1  --> ACIQ clipping
+    #  c == -2  --> Entropy clipping
+    --weight-clip-threshold 1.0 \
+    # Activation clip threshold, see above
+    --act-clip-threshold 1.0 \
+    # Number of activation profiling batches
+    # taken from the training set
+    --profile-batches 4
+```
+This example is included as ```example.sh```. One experiment over the ImageNet validation set takes about 15 minutes on a GTX 1080 Ti.
+
+### Batch Experiments
+The directory ```OCS-CNN/scripts``` contains scripts to help replicate Table 1 from our paper. Use ```ocs_script.py``` to run many configurations in a loop, then ```parse_ocs.py <log_dir>``` to parse the results. Other scripts in the same directory run the clipping experiments.
+
+### Code Overview
+The OCS quantization pass is inside ```distiller/quantization/```. The main files are ```ocs.py```, ```ocs_impl.py```, and ```clip.py```. 
+
+# Distiller README
 <center> <img src="imgs/banner1.png"></center>
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/NervanaSystems/distiller/blob/master/LICENSE)
