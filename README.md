@@ -1,6 +1,6 @@
 # Outlier Channel Splitting
 
-OCS is a technique to improve post-training quantization which splits (i.e. duplicates then divides by two) channels containing large outlier weights in a layer. This reduces the dynamic range of the weights and reduces quantization error.
+OCS is a technique to improve post-training quantization which splits (i.e. duplicates then divides by two) channels containing large outlier weights in a layer. This reduces the dynamic range of the weights and reduces quantization error. See our paper [here](http://arxiv.org/abs/1901.09504).
 
 We implement OCS in PyTorch using the Distiller library. The master branch contains the code to do **weight OCS only**, and scripts to help replicate the results in Table 1.
 
@@ -46,7 +46,7 @@ This example is included as ```example.sh```. One experiment over the ImageNet v
 The directory ```OCS-CNN/scripts``` contains scripts to help replicate Table 1 from our paper. Use ```ocs_script.py``` to run many configurations in a loop, then ```parse_ocs.py <log_dir>``` to parse the results. Other scripts in the same directory run the clipping experiments.
 
 ### Code Overview
-The OCS quantization pass is inside ```distiller/quantization/```. The main files are ```ocs.py```, ```ocs_impl.py```, and ```clip.py```. 
+The OCS quantization pass is inside ```distiller/quantization/```. The main files are ```ocs.py```, ```ocs_impl.py```, and ```clip.py```.
 
 # Distiller README
 <center> <img src="imgs/banner1.png"></center>
