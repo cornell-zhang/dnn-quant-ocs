@@ -11,7 +11,7 @@ pip install -r requirements.txt --user
 ```
 
 ### Usage
-Our experiment are run from the director ```OCS-CNN```. The main program is ```compresss_classifier.py``` and we provide an example of what arguments to set below:
+Our experiment are run from the directory ```OCS-CNN```. The main program is ```compress_classifier.py``` and we provide an example of what arguments to set below:
 ```
 python compress_classifier.py \
     # Path to the ImageNet data
