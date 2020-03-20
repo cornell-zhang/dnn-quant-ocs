@@ -48,6 +48,20 @@ The directory ```OCS-CNN/scripts``` contains scripts to help replicate Table 1 f
 ### Code Overview
 The OCS quantization pass is inside ```distiller/quantization/```. The main files are ```ocs.py```, ```ocs_impl.py```, and ```clip.py```.
 
+### Citation
+We published OCS in ICML 2019, so feel free to use the citation below if you reference the work.
+
+```
+@article{zhao2019ocs,
+  title="{Improving Neural Network Quantization without Retraining using Outlier Channel Splitting}",
+  author={Zhao, Ritchie and Hu, Yuwei and Dotzel, Jordan and De Sa, Chris and Zhang, Zhiru},
+  journal=ICML,
+  pages={7543--7552},
+  month=JUN,
+  year={2019}
+}
+```
+
 # Distiller README
 <center> <img src="imgs/banner1.png"></center>
 
@@ -342,7 +356,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.md](LICENSE.md) file for details
 
-## Citation
+## Distiller Citation
 
 If you used Distiller for your work, please use the following citation:
 
