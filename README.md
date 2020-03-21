@@ -16,9 +16,9 @@ We published OCS in ICML 2019. See our paper [here](http://arxiv.org/abs/1901.09
 }
 ```
 
-We implement OCS in PyTorch using the Distiller library. The master branch contains the code to do **weight OCS only**, and scripts to help replicate the results in Table 1.
-
 ### Installation
+We implement OCS in PyTorch using the Distiller library. The master branch contains the code to do **weight OCS only**, and scripts to help replicate the results in Table 1 from our paper.
+
 Distiller requires ```Python-3.5``` or ```Python-3.6```. The required packages can be installed via:
 ```
 pip install -r requirements.txt --user
