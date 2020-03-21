@@ -11,7 +11,7 @@ We published OCS in ICML 2019. See our paper [here](http://arxiv.org/abs/1901.09
   author={Zhao, Ritchie and Hu, Yuwei and Dotzel, Jordan and De Sa, Chris and Zhang, Zhiru},
   journal={International Conference on Machine Learning (ICML)},
   pages={7543--7552},
-  month=JUN,
+  month={June},
   year={2019}
 }
 ```
