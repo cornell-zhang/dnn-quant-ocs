@@ -1,6 +1,20 @@
 # Outlier Channel Splitting
 
-OCS is a technique to improve post-training quantization which splits (i.e. duplicates then divides by two) channels containing large outlier weights in a layer. This reduces the dynamic range of the weights and reduces quantization error. See our paper [here](http://arxiv.org/abs/1901.09504).
+OCS is a technique to improve post-training quantization which splits (i.e. duplicates then divides by two) channels containing large outlier weights in a layer. This reduces the dynamic range of the weights and reduces quantization error. 
+
+### Citation
+We published OCS in ICML 2019. See our paper [here](http://arxiv.org/abs/1901.09504). Please use the citation below if you reference the work. 
+
+```
+@article{zhao2019ocs,
+  title="{Improving Neural Network Quantization without Retraining using Outlier Channel Splitting}",
+  author={Zhao, Ritchie and Hu, Yuwei and Dotzel, Jordan and De Sa, Chris and Zhang, Zhiru},
+  journal={International Conference on Machine Learning (ICML)},
+  pages={7543--7552},
+  month=JUN,
+  year={2019}
+}
+```
 
 We implement OCS in PyTorch using the Distiller library. The master branch contains the code to do **weight OCS only**, and scripts to help replicate the results in Table 1.
 
@@ -47,20 +61,6 @@ The directory ```OCS-CNN/scripts``` contains scripts to help replicate Table 1 f
 
 ### Code Overview
 The OCS quantization pass is inside ```distiller/quantization/```. The main files are ```ocs.py```, ```ocs_impl.py```, and ```clip.py```.
-
-### Citation
-We published OCS in ICML 2019, so feel free to use the citation below if you reference the work.
-
-```
-@article{zhao2019ocs,
-  title="{Improving Neural Network Quantization without Retraining using Outlier Channel Splitting}",
-  author={Zhao, Ritchie and Hu, Yuwei and Dotzel, Jordan and De Sa, Chris and Zhang, Zhiru},
-  journal=ICML,
-  pages={7543--7552},
-  month=JUN,
-  year={2019}
-}
-```
 
 # Distiller README
 <center> <img src="imgs/banner1.png"></center>
